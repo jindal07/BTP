@@ -3,7 +3,11 @@
   "builds": [
     {
       "src": "api/index.py",
-      "use": "@vercel/python"
+      "use": "@vercel/python",
+      "config": {
+        "maxLambdaSize": "50mb",
+        "excludeFiles": "{react-frontend/**,node_modules/**,.git/**,*.md}"
+      }
     },
     {
       "src": "package.json",
@@ -22,5 +26,10 @@
       "src": "/(.*)",
       "dest": "/index.html"
     }
-  ]
+  ],
+  "functions": {
+    "api/index.py": {
+      "includeFiles": "csv_data/**"
+    }
+  }
 }

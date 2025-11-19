@@ -1,11 +1,27 @@
-node_modules
-.git
-__pycache__
-*.pyc
-.env
-.env.local
-.vscode
-.idea
+# Development files
+node_modules/
+.git/
+.vscode/
+.idea/
 .DS_Store
 *.log
 npm-debug.log*
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Environment
+.env
+.env.local
+
+# Documentation (not needed for deployment)
+TROUBLESHOOTING.md
+
+# Don't exclude these - they're needed:
+# !api/
+# !csv_data/
+# !nirf_predictions_2025.csv
+# !react-frontend/dist/
