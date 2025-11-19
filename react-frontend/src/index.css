@@ -1,0 +1,198 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply antialiased;
+  }
+  
+  body {
+    background: linear-gradient(to bottom right, #f4f2f1, #e8e6e3);
+    min-height: 100vh;
+    font-family: 'Exo 2', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Exo 2', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+}
+
+@layer components {
+  .card-gradient {
+    background: linear-gradient(to bottom right, #ffffff, #f4f2f1);
+  }
+  
+  .rank-badge {
+    @apply inline-flex items-center justify-center w-12 h-12 rounded-full font-bold text-lg;
+  }
+  
+  .rank-gold {
+    background: linear-gradient(to bottom right, #fbbf24, #d97706);
+    @apply text-white shadow-lg;
+  }
+  
+  .rank-silver {
+    background: linear-gradient(to bottom right, #d2cbc6, #71645b);
+    @apply text-white shadow-lg;
+  }
+  
+  .rank-bronze {
+    background: linear-gradient(to bottom right, #fb923c, #ea580c);
+    @apply text-white shadow-lg;
+  }
+  
+  .rank-default {
+    background: linear-gradient(to bottom right, #b5804a, #6d4d2c);
+    @apply text-white shadow-lg;
+  }
+
+  .btn-primary {
+    @apply px-4 py-2 text-white rounded-lg font-medium transition-all duration-200 shadow-lg;
+    background: linear-gradient(to right, #91663b, #81634b);
+  }
+
+  .btn-primary:hover {
+    background: linear-gradient(to right, #6d4d2c, #604b39);
+    @apply shadow-xl;
+  }
+
+  .btn-primary:active {
+    @apply scale-95;
+  }
+
+  .btn-primary:disabled {
+    @apply opacity-50 cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply px-4 py-2 bg-white rounded-lg font-medium border transition-all duration-200 shadow;
+    color: #353132;
+    border-color: #d2cbc6;
+  }
+
+  .btn-secondary:hover {
+    background-color: #f4f2f1;
+    @apply shadow-md;
+  }
+
+  .btn-secondary:active {
+    @apply scale-95;
+  }
+
+  .btn-secondary:disabled {
+    @apply opacity-50 cursor-not-allowed;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-2 rounded-lg transition-all duration-200 outline-none;
+    border: 1px solid #d2cbc6;
+  }
+
+  .input-field:focus {
+    border-color: transparent;
+    box-shadow: 0 0 0 2px #b5804a;
+  }
+
+  .select-field {
+    @apply w-full px-4 py-2 rounded-lg transition-all duration-200 outline-none bg-white cursor-pointer;
+    border: 1px solid #d2cbc6;
+  }
+
+  .select-field:focus {
+    border-color: transparent;
+    box-shadow: 0 0 0 2px #b5804a;
+  }
+
+  .tab-button {
+    @apply px-6 py-3 font-medium transition-colors duration-200 border-b-2 border-transparent;
+    color: #6a6264;
+  }
+
+  .tab-button:hover {
+    color: #91663b;
+    border-color: #e1ccb7;
+  }
+
+  .tab-button-active {
+    color: #91663b;
+    border-color: #91663b;
+  }
+
+  .college-card {
+    @apply bg-white rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 
+           p-6 hover:scale-[1.02] cursor-pointer;
+    border: 1px solid #e8e5e3;
+  }
+
+  .modal-overlay {
+    @apply fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4
+           animate-fade-in;
+  }
+
+  .modal-content {
+    @apply bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden shadow-2xl
+           animate-scale-in;
+  }
+
+  .stat-card {
+    background: linear-gradient(to bottom right, #ffffff, #f4f2f1);
+    @apply rounded-lg p-4 border border-silver-200;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium;
+  }
+
+  .badge-success {
+    @apply bg-green-100 text-green-700;
+  }
+
+  .badge-info {
+    background-color: #f0e6db;
+    color: #6d4d2c;
+  }
+
+  .badge-warning {
+    @apply bg-yellow-100 text-yellow-700;
+  }
+
+  .badge-error {
+    @apply bg-red-100 text-red-700;
+  }
+
+  .loader {
+    @apply animate-spin rounded-full border-4;
+    border-color: #e8e5e3;
+    border-top-color: #91663b;
+  }
+
+  .fade-in {
+    @apply animate-fade-in;
+  }
+
+  .slide-up {
+    @apply animate-slide-up;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f4f2f1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d2cbc6;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a4978e;
+}
+

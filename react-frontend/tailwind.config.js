@@ -1,0 +1,102 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ['"Exo 2"', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'Arial', 'sans-serif'],
+      },
+      colors: {
+        'dim-grey': {
+          50: '#f3f3f1',
+          100: '#e8e6e3',
+          200: '#d1cdc7',
+          300: '#b9b4ac',
+          400: '#a29b90',
+          500: '#8b8274',
+          600: '#6f685d',
+          700: '#534e46',
+          800: '#38342e',
+          900: '#1c1a17',
+          950: '#131210',
+        },
+        silver: {
+          50: '#f4f2f1',
+          100: '#e8e5e3',
+          200: '#d2cbc6',
+          300: '#bbb1aa',
+          400: '#a4978e',
+          500: '#8e7d71',
+          600: '#71645b',
+          700: '#554b44',
+          800: '#39322d',
+          900: '#1c1917',
+          950: '#141110',
+        },
+        'toffee-brown': {
+          50: '#f6f2ef',
+          100: '#ece5df',
+          200: '#d9cbbf',
+          300: '#c6b19f',
+          400: '#b4967e',
+          500: '#a17c5e',
+          600: '#81634b',
+          700: '#604b39',
+          800: '#403226',
+          900: '#201913',
+          950: '#16110d',
+        },
+        camel: {
+          50: '#f8f2ed',
+          100: '#f0e6db',
+          200: '#e1ccb7',
+          300: '#d3b392',
+          400: '#c4996e',
+          500: '#b5804a',
+          600: '#91663b',
+          700: '#6d4d2c',
+          800: '#48331e',
+          900: '#241a0f',
+          950: '#19120a',
+        },
+        graphite: {
+          50: '#f3f2f2',
+          100: '#e7e4e5',
+          200: '#cecacb',
+          300: '#b6afb1',
+          400: '#9d9597',
+          500: '#857a7c',
+          600: '#6a6264',
+          700: '#50494b',
+          800: '#353132',
+          900: '#1b1819',
+          950: '#131111',
+        },
+      },
+      animation: {
+        'fade-in': 'fadeIn 0.3s ease-in-out',
+        'slide-up': 'slideUp 0.4s ease-out',
+        'scale-in': 'scaleIn 0.2s ease-out',
+      },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        slideUp: {
+          '0%': { transform: 'translateY(20px)', opacity: '0' },
+          '100%': { transform: 'translateY(0)', opacity: '1' },
+        },
+        scaleIn: {
+          '0%': { transform: 'scale(0.95)', opacity: '0' },
+          '100%': { transform: 'scale(1)', opacity: '1' },
+        },
+      },
+    },
+  },
+  plugins: [],
+}
+

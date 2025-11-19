@@ -1,0 +1,33 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/index.py",
+      "use": "@vercel/python"
+    },
+    {
+      "src": "react-frontend/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "react-frontend/dist"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "api/index.py"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "react-frontend/dist/$1"
+    }
+  ],
+  "env": {
+    "PYTHON_VERSION": "3.11"
+  },
+  "buildCommand": "cd react-frontend && npm install && npm run build",
+  "outputDirectory": "react-frontend/dist",
+  "framework": null
+}
+
