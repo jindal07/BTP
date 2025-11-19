@@ -9,5 +9,3 @@ __pycache__
 .DS_Store
 *.log
 npm-debug.log*
-VERCEL_DEPLOY.md
-README.md
