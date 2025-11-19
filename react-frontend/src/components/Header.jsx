@@ -41,7 +41,7 @@ export default function Header() {
           <div className="hidden lg:flex items-center space-x-6">
             <div className="text-center">
               <div className="text-3xl font-bold" style={{ fontFamily: "'Exo 2', sans-serif" }}>
-                1000+
+                250+
               </div>
               <div className="text-camel-200 text-sm">Institutions</div>
             </div>

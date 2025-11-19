@@ -182,7 +182,9 @@ export default function CollegeModal({ college, onClose }) {
           {latestMetrics && (
             <div className="mb-8">
               <h3 className="text-xl font-bold text-graphite-800 mb-4">Latest Metrics ({latestYear})</h3>
-              <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+              
+              {/* Main Parameters */}
+              <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-6">
                 {Object.entries(latestMetrics).map(([key, value]) => (
                   <div key={key} className="stat-card text-center">
                     <div className="text-sm text-graphite-500 uppercase mb-2">{key}</div>
@@ -191,6 +193,160 @@ export default function CollegeModal({ college, onClose }) {
                     </div>
                   </div>
                 ))}
+              </div>
+
+              {/* Sub-Parameters Section */}
+              <div className="mt-6">
+                <h4 className="text-lg font-semibold text-graphite-800 mb-4">Detailed Sub-Parameters ({latestYear})</h4>
+                
+                {/* TLR Sub-Parameters */}
+                <div className="mb-6 bg-gradient-to-r from-camel-50 to-toffee-brown-50 rounded-lg p-4 border border-camel-200">
+                  <h5 className="text-md font-semibold text-camel-700 mb-3">📚 Teaching, Learning & Resources (TLR)</h5>
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                    <div className="bg-white rounded p-3 border border-silver-200">
+                      <div className="text-xs text-graphite-500 uppercase mb-1">SS - Student Strength</div>
+                      <div className="text-lg font-bold text-graphite-800">
+                        {college[`SS_${latestYear}`] ? parseFloat(college[`SS_${latestYear}`]).toFixed(2) : 'N/A'}
+                      </div>
+                    </div>
+                    <div className="bg-white rounded p-3 border border-silver-200">
+                      <div className="text-xs text-graphite-500 uppercase mb-1">FSR - Faculty-Student Ratio</div>
+                      <div className="text-lg font-bold text-graphite-800">
+                        {college[`FSR_${latestYear}`] ? parseFloat(college[`FSR_${latestYear}`]).toFixed(2) : 'N/A'}
+                      </div>
+                    </div>
+                    <div className="bg-white rounded p-3 border border-silver-200">
+                      <div className="text-xs text-graphite-500 uppercase mb-1">FQE - Faculty with PhD</div>
+                      <div className="text-lg font-bold text-graphite-800">
+                        {college[`FQE_${latestYear}`] ? parseFloat(college[`FQE_${latestYear}`]).toFixed(2) : 'N/A'}
+                      </div>
+                    </div>
+                    <div className="bg-white rounded p-3 border border-silver-200">
+                      <div className="text-xs text-graphite-500 uppercase mb-1">FRU - Financial Resources</div>
+                      <div className="text-lg font-bold text-graphite-800">
+                        {college[`FRU_${latestYear}`] ? parseFloat(college[`FRU_${latestYear}`]).toFixed(2) : 'N/A'}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* RPC Sub-Parameters */}
+                <div className="mb-6 bg-gradient-to-r from-toffee-brown-50 to-camel-50 rounded-lg p-4 border border-toffee-brown-200">
+                  <h5 className="text-md font-semibold text-toffee-brown-700 mb-3">🔬 Research & Professional Practice (RPC)</h5>
+                  <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
+                    <div className="bg-white rounded p-3 border border-silver-200">
+                      <div className="text-xs text-graphite-500 uppercase mb-1">PU - Publications</div>
+                      <div className="text-lg font-bold text-graphite-800">
+                        {college[`PU_${latestYear}`] ? parseFloat(college[`PU_${latestYear}`]).toFixed(2) : 'N/A'}
+                      </div>
+                    </div>
+                    <div className="bg-white rounded p-3 border border-silver-200">
+                      <div className="text-xs text-graphite-500 uppercase mb-1">QP - Quality Publications</div>
+                      <div className="text-lg font-bold text-graphite-800">
+                        {college[`QP_${latestYear}`] ? parseFloat(college[`QP_${latestYear}`]).toFixed(2) : 'N/A'}
+                      </div>
+                    </div>
+                    <div className="bg-white rounded p-3 border border-silver-200">
+                      <div className="text-xs text-graphite-500 uppercase mb-1">IPR - Patents</div>
+                      <div className="text-lg font-bold text-graphite-800">
+                        {college[`IPR_${latestYear}`] ? parseFloat(college[`IPR_${latestYear}`]).toFixed(2) : 'N/A'}
+                      </div>
+                    </div>
+                    <div className="bg-white rounded p-3 border border-silver-200">
+                      <div className="text-xs text-graphite-500 uppercase mb-1">FPPP - Footprint</div>
+                      <div className="text-lg font-bold text-graphite-800">
+                        {college[`FPPP_${latestYear}`] ? parseFloat(college[`FPPP_${latestYear}`]).toFixed(2) : 'N/A'}
+                      </div>
+                    </div>
+                    <div className="bg-white rounded p-3 border border-silver-200">
+                      <div className="text-xs text-graphite-500 uppercase mb-1">RD - Research Diversity</div>
+                      <div className="text-lg font-bold text-graphite-800">
+                        {college[`RD_${latestYear}`] ? parseFloat(college[`RD_${latestYear}`]).toFixed(2) : 'N/A'}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* GO Sub-Parameters */}
+                <div className="mb-6 bg-gradient-to-r from-silver-50 to-dim-grey-50 rounded-lg p-4 border border-silver-200">
+                  <h5 className="text-md font-semibold text-graphite-700 mb-3">🎓 Graduation Outcomes (GO)</h5>
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                    <div className="bg-white rounded p-3 border border-silver-200">
+                      <div className="text-xs text-graphite-500 uppercase mb-1">GPHE - Higher Education</div>
+                      <div className="text-lg font-bold text-graphite-800">
+                        {college[`GPHE_${latestYear}`] ? parseFloat(college[`GPHE_${latestYear}`]).toFixed(2) : 'N/A'}
+                      </div>
+                    </div>
+                    <div className="bg-white rounded p-3 border border-silver-200">
+                      <div className="text-xs text-graphite-500 uppercase mb-1">GUE - University Exams</div>
+                      <div className="text-lg font-bold text-graphite-800">
+                        {college[`GUE_${latestYear}`] ? parseFloat(college[`GUE_${latestYear}`]).toFixed(2) : 'N/A'}
+                      </div>
+                    </div>
+                    <div className="bg-white rounded p-3 border border-silver-200">
+                      <div className="text-xs text-graphite-500 uppercase mb-1">MS - Median Salary</div>
+                      <div className="text-lg font-bold text-graphite-800">
+                        {college[`MS_${latestYear}`] ? parseFloat(college[`MS_${latestYear}`]).toFixed(2) : 'N/A'}
+                      </div>
+                    </div>
+                    <div className="bg-white rounded p-3 border border-silver-200">
+                      <div className="text-xs text-graphite-500 uppercase mb-1">GPHD - PhD Graduates</div>
+                      <div className="text-lg font-bold text-graphite-800">
+                        {college[`GPHD_${latestYear}`] ? parseFloat(college[`GPHD_${latestYear}`]).toFixed(2) : 'N/A'}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* OI Sub-Parameters */}
+                <div className="mb-6 bg-gradient-to-r from-camel-50 to-silver-50 rounded-lg p-4 border border-camel-200">
+                  <h5 className="text-md font-semibold text-camel-700 mb-3">🌍 Outreach & Inclusivity (OI)</h5>
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                    <div className="bg-white rounded p-3 border border-silver-200">
+                      <div className="text-xs text-graphite-500 uppercase mb-1">WD - Women Diversity</div>
+                      <div className="text-lg font-bold text-graphite-800">
+                        {college[`WD_${latestYear}`] ? parseFloat(college[`WD_${latestYear}`]).toFixed(2) : 'N/A'}
+                      </div>
+                    </div>
+                    <div className="bg-white rounded p-3 border border-silver-200">
+                      <div className="text-xs text-graphite-500 uppercase mb-1">ESCS - Economically Weaker</div>
+                      <div className="text-lg font-bold text-graphite-800">
+                        {college[`ESCS_${latestYear}`] ? parseFloat(college[`ESCS_${latestYear}`]).toFixed(2) : 'N/A'}
+                      </div>
+                    </div>
+                    <div className="bg-white rounded p-3 border border-silver-200">
+                      <div className="text-xs text-graphite-500 uppercase mb-1">PCS - Physically Challenged</div>
+                      <div className="text-lg font-bold text-graphite-800">
+                        {college[`PCS_${latestYear}`] ? parseFloat(college[`PCS_${latestYear}`]).toFixed(2) : 'N/A'}
+                      </div>
+                    </div>
+                    <div className="bg-white rounded p-3 border border-silver-200">
+                      <div className="text-xs text-graphite-500 uppercase mb-1">RD - Regional Diversity</div>
+                      <div className="text-lg font-bold text-graphite-800">
+                        {college[`RD_${latestYear}`] ? parseFloat(college[`RD_${latestYear}`]).toFixed(2) : 'N/A'}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Perception */}
+                <div className="bg-gradient-to-r from-toffee-brown-50 to-silver-50 rounded-lg p-4 border border-toffee-brown-200">
+                  <h5 className="text-md font-semibold text-toffee-brown-700 mb-3">⭐ Perception (PR)</h5>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <div className="bg-white rounded p-3 border border-silver-200">
+                      <div className="text-xs text-graphite-500 uppercase mb-1">PR - Peer Perception</div>
+                      <div className="text-lg font-bold text-graphite-800">
+                        {college[`PR_${latestYear}`] ? parseFloat(college[`PR_${latestYear}`]).toFixed(2) : 'N/A'}
+                      </div>
+                    </div>
+                    <div className="bg-white rounded p-3 border border-silver-200">
+                      <div className="text-xs text-graphite-500 uppercase mb-1">PERCEPTION - Overall Perception</div>
+                      <div className="text-lg font-bold text-graphite-800">
+                        {college[`PERCEPTION (100)_${latestYear}`] ? parseFloat(college[`PERCEPTION (100)_${latestYear}`]).toFixed(2) : 'N/A'}
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           )}

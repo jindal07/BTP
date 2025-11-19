@@ -3,7 +3,11 @@
   "builds": [
     {
       "src": "api/index.py",
-      "use": "@vercel/python"
+      "use": "@vercel/python",
+      "config": {
+        "maxLambdaSize": "50mb",
+        "excludeFiles": "{react-frontend/**,node_modules/**,*.md,National_Institutional_Ranking_Framework_logo.png}"
+      }
     },
     {
       "src": "package.json",
@@ -25,6 +29,11 @@
       "src": "/(.*)",
       "dest": "/index.html"
     }
-  ]
+  ],
+  "functions": {
+    "api/index.py": {
+      "includeFiles": "{csv_data/**,nirf_predictions_2025.csv}"
+    }
+  }
 }
 

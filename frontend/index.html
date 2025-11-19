@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NIRF Engineering Rankings Portal</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="logo">NIRF Engineering Rankings</h1>
+                <nav class="nav-tabs">
+                    <button class="nav-tab active" data-tab="home">Home</button>
+                    <button class="nav-tab" data-tab="compare">Compare</button>
+                    <button class="nav-tab" data-tab="predictions">Predictions</button>
+                    <button class="nav-tab" data-tab="admin">Admin</button>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- HOME TAB -->
+            <div class="tab-content active" id="home-tab">
+                <h2 class="page-title">NIRF Engineering Rankings 2025</h2>
+                <div class="filters-section">
+                    <div class="search-box">
+                        <input type="text" id="search-input" placeholder="Search colleges..." class="search-input">
+                    </div>
+                    <div class="filter-box">
+                        <label for="year-filter">Year:</label>
+                        <select id="year-filter" class="filter-select">
+                            <option value="2025">2025</option>
+                            <option value="2024">2024</option>
+                            <option value="2023">2023</option>
+                            <option value="2022">2022</option>
+                            <option value="2021">2021</option>
+                            <option value="2020">2020</option>
+                            <option value="2019">2019</option>
+                            <option value="2018">2018</option>
+                            <option value="2017">2017</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="colleges-grid" id="colleges-grid"></div>
+            </div>
+
+            <!-- COMPARE TAB -->
+            <div class="tab-content" id="compare-tab">
+                <div class="compare-header">
+                    <h1>Compare Colleges</h1>
+                    <p>Select up to 6 colleges and choose parameters to compare side-by-side</p>
+                </div>
+                
+                <div class="compare-controls">
+                    <div class="college-selector">
+                        <label>Selected Colleges</label>
+                        <div id="selected-colleges-chips"></div>
+                        <input type="text" id="college-search" placeholder="Add college..." autocomplete="off" />
+                        <div id="college-suggestions" class="suggestions-dropdown"></div>
+                    </div>
+                    
+                    <div class="parameter-selection">
+                        <label>Parameters to Compare</label>
+                        <div class="param-checkboxes">
+                            <label><input type="checkbox" name="param" value="tlr" checked> TLR</label>
+                            <label><input type="checkbox" name="param" value="rpc" checked> RPC</label>
+                            <label><input type="checkbox" name="param" value="go" checked> GO</label>
+                            <label><input type="checkbox" name="param" value="oi" checked> OI</label>
+                            <label><input type="checkbox" name="param" value="perception" checked> Perception</label>
+                        </div>
+                    </div>
+                    
+                    <div class="year-selector">
+                        <label>Year</label>
+                        <select id="compare-year-select" class="filter-select">
+                            <option value="2025">2025</option>
+                            <option value="2024">2024</option>
+                            <option value="2023">2023</option>
+                            <option value="2022">2022</option>
+                            <option value="2021">2021</option>
+                            <option value="2020">2020</option>
+                            <option value="2019">2019</option>
+                            <option value="2018">2018</option>
+                            <option value="2017">2017</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="comparison-results">
+                    <div id="comparison-table-container"></div>
+                    
+                    <div class="charts-row">
+                        <div class="chart-container">
+                            <h3>Parameter Radar Comparison</h3>
+                            <canvas id="radar-comparison-chart"></canvas>
+                        </div>
+                        <div class="chart-container">
+                            <h3>Score Trends Over Time</h3>
+                            <canvas id="score-trends-chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PREDICTIONS TAB -->
+            <div class="tab-content" id="predictions-tab">
+                <div class="predictions-container">
+                    <h2 class="section-title">Predicted Rankings 2026</h2>
+                    <div class="predictions-search">
+                        <input type="text" id="predictions-search" placeholder="Search predictions..." class="search-input">
+                    </div>
+                    <div class="table-container">
+                        <table class="predictions-table" id="predictions-table">
+                            <thead>
+                                <tr>
+                                    <th>Predicted Rank 2026</th>
+                                    <th>College Name</th>
+                                    <th>Predicted Score</th>
+                                    <th>Current Rank 2025</th>
+                                    <th>Change</th>
+                                </tr>
+                            </thead>
+                            <tbody id="predictions-tbody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ADMIN TAB -->
+            <div class="tab-content" id="admin-tab">
+                <div class="admin-container">
+                    <h2 class="section-title">Admin Panel</h2>
+                    
+                    <!-- Backend Connection Status -->
+                    <div class="backend-status" id="backend-status">
+                        <h3>Backend Connection Status</h3>
+                        <div class="status-info" id="status-info">
+                            <div class="status-indicator" id="status-indicator"></div>
+                            <div class="status-text" id="status-text">Checking...</div>
+                        </div>
+                        
+                    </div>
+                    
+                    <h2 class="section-title">Upload CSV Data</h2>
+                    <div class="upload-section">
+                        <div class="upload-box" id="upload-box">
+                            <div class="upload-icon">📁</div>
+                            <p class="upload-text">Drag &amp; drop your CSV file here</p>
+                            <p class="upload-subtext">or</p>
+                            <button class="btn-secondary" id="browse-btn">Browse Files</button>
+                            <input type="file" id="file-input" accept=".csv" style="display: none;">
+                        </div>
+                                                <div class="upload-status" id="upload-status"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- College Detail Modal -->
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal">
+            <button class="modal-close" id="modal-close">&times;</button>
+            <div class="modal-content" id="modal-content"></div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+<!-- Sub-Parameter Popup Modal -->
+<div id="subparam-popup" class="subparam-popup">
+  <div class="subparam-popup-content">
+    <button class="subparam-close">&times;</button>
+    <h2 id="subparam-title">TLR Sub-Parameters</h2>
+    <p id="subparam-description" class="subparam-subtitle">Teaching, Learning & Resources</p>
+    <p id="subparam-college-name" class="subparam-college"></p>
+    
+    <div class="subparam-table-container">
+      <table class="subparam-table">
+        <thead>
+          <tr>
+            <th>Sub-Parameter</th>
+            <th>2017</th>
+            <th>2018</th>
+            <th>2019</th>
+            <th>2020</th>
+            <th>2021</th>
+            <th>2022</th>
+            <th>2023</th>
+            <th>2024</th>
+            <th>2025</th>
+          </tr>
+        </thead>
+        <tbody id="subparam-tbody">
+          <!-- Populated dynamically by JavaScript -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</body>
+</html>
