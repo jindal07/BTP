@@ -1,12 +1,9 @@
 {
   "name": "nirf-rankings-portal",
   "version": "1.0.0",
-  "description": "NIRF Engineering College Rankings Portal",
   "scripts": {
-    "build": "cd react-frontend && npm ci && npm run build"
+    "build": "cd react-frontend && npm install && npm run build"
   },
-  "keywords": ["nirf", "rankings", "education"],
-  "author": "",
+  "keywords": ["nirf", "rankings"],
   "license": "MIT"
 }
-
