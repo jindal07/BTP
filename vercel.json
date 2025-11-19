@@ -6,7 +6,7 @@
       "use": "@vercel/python"
     },
     {
-      "src": "react-frontend/package.json",
+      "src": "package.json",
       "use": "@vercel/static-build",
       "config": {
         "distDir": "react-frontend/dist"
@@ -19,15 +19,12 @@
       "dest": "api/index.py"
     },
     {
+      "handle": "filesystem"
+    },
+    {
       "src": "/(.*)",
-      "dest": "react-frontend/dist/$1"
+      "dest": "/index.html"
     }
-  ],
-  "env": {
-    "PYTHON_VERSION": "3.11"
-  },
-  "buildCommand": "cd react-frontend && npm install && npm run build",
-  "outputDirectory": "react-frontend/dist",
-  "framework": null
+  ]
 }
 
