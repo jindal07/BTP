@@ -1,22 +1,10 @@
 {
-  "version": 2,
   "buildCommand": "cd react-frontend && npm install && npm run build",
   "outputDirectory": "react-frontend/dist",
-  "installCommand": "echo 'Dependencies managed per function'",
-  "functions": {
-    "api/**/*.py": {
-      "runtime": "python3.11",
-      "includeFiles": "{csv_data/**,nirf_predictions_2025.csv}"
-    }
-  },
   "rewrites": [
     {
-      "source": "/api/(.*)",
+      "source": "/api/:path*",
       "destination": "/api/index"
-    },
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
     }
   ]
 }
