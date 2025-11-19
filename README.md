@@ -23,7 +23,6 @@ This project is optimized for **Vercel deployment** with both frontend and backe
 
 3. **Done!** Your site will be live at `https://your-project.vercel.app`
 
-📚 **Detailed Guide**: See [VERCEL_QUICKSTART.md](./VERCEL_QUICKSTART.md)
 
 ---
 
@@ -134,14 +133,6 @@ json/
 2. Every push to `main` automatically deploys
 3. Preview deployments for all branches
 
-**Manual Deployment:**
-```bash
-npm install -g vercel
-vercel login
-vercel --prod
-```
-
-📖 **Full Guide**: [VERCEL_QUICKSTART.md](./VERCEL_QUICKSTART.md)
 
 ---
 
@@ -173,21 +164,6 @@ vercel --prod
 | `/api/colleges` | GET | Get all colleges |
 | `/api/predictions` | GET | Get predictions |
 | `/api/admin/upload` | POST | Upload CSV |
-
----
-
-## 🔒 Environment Variables
-
-### Production (Optional)
-```env
-# Backend
-ENVIRONMENT=production
-
-# Frontend (if separate backend)
-VITE_API_URL=https://your-backend-url.com
-```
-
-For Vercel monorepo deployment, no environment variables needed! 🎉
 
 ---
 
@@ -225,25 +201,10 @@ MIT License - Feel free to use for your projects!
 
 ---
 
-## 📞 Support
-
-- 📖 **Documentation**: [VERCEL_DEPLOY.md](./VERCEL_DEPLOY.md)
-- 🐛 **Issues**: Open a GitHub issue
-- 💬 **Discussions**: GitHub Discussions
 
 ---
 
-## 🎯 Project Status
+**Made with ❤️**
 
-✅ **Production Ready**  
-✅ **Fully Tested**  
-✅ **Deployed on Vercel**  
-✅ **Free to Use**
-
----
-
-**Made with ❤️ | Deployed with 🚀 Vercel**
-
-*Last Updated: November 2024*
 
 # BTP
